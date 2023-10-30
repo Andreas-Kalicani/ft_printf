@@ -6,7 +6,7 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:10:21 by akalican          #+#    #+#             */
-/*   Updated: 2023/10/30 13:46:58 by akalican         ###   ########.fr       */
+/*   Updated: 2023/10/30 14:48:27 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,18 @@ void	ft_put_ptr(uintptr_t nbr)
 	}
 }
 
-int	ft_ptr_print(unsigned long long ptr)
+int	ft_ptr_print(unsigned long long pointer)
 {
+	int	length_print;
+
+	length_print = 0;
+	length_print += write(1, "0x", 2);
+	if (pointer == 0)
+		length_print += write(1, NULL, 1);
+	else
+	{
+		ft_put_ptr(pointer);
+		length_print += ft_len_ptr(pointer);
+	}
+	return (length_print);
 }

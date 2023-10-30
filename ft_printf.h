@@ -6,13 +6,14 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:31:22 by akalican          #+#    #+#             */
-/*   Updated: 2023/10/30 12:41:10 by akalican         ###   ########.fr       */
+/*   Updated: 2023/10/30 14:50:43 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
 
