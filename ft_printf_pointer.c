@@ -6,11 +6,12 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:10:21 by akalican          #+#    #+#             */
-/*   Updated: 2023/10/30 14:48:27 by akalican         ###   ########.fr       */
+/*   Updated: 2023/10/31 11:58:49 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 int	ft_len_ptr(uintptr_t nbr)
 {
@@ -25,7 +26,7 @@ int	ft_len_ptr(uintptr_t nbr)
 	return (len);
 }
 
-void	ft_put_ptr(uintptr_t nbr)
+uintptr_t	ft_put_ptr(uintptr_t nbr)
 {
 	if (nbr >= 16)
 	{
@@ -39,6 +40,7 @@ void	ft_put_ptr(uintptr_t nbr)
 		else
 			ft_putchar_fd((nbr - 10 + 'a'), 1);
 	}
+	return (nbr);
 }
 
 int	ft_ptr_print(unsigned long long pointer)

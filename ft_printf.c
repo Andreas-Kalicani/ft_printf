@@ -6,7 +6,7 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:51:16 by akalican          #+#    #+#             */
-/*   Updated: 2023/10/30 15:39:03 by akalican         ###   ########.fr       */
+/*   Updated: 2023/10/31 14:22:34 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,33 @@
 
 int	ft_convert(va_list args, const char format)
 {
-	int	length_print;
+	int				length_print;
+	char				*str;
+	int				integer;
+	unsigned int	ptr;
 
 	length_print = 0;
 	if (format == 'c')
-		length_print += ft_putchar(va_arg(args, int c));
+	{
+		length_print += ft_putchar(va_arg(args, int));
+		length_print++;
+	}
 	else if (format == 's')
-		length_print += ft_putstr(va_arg(args, char *));
+	{
+		str = va_arg(args, char *);
+		length_print += ft_putstr(str);
+	}
 	else if (format == 'd' || format == 'i')
-		length_print += ft_printnbr(va_arg(args, int));
+	{
+		integer = va_arg(args, int);
+		length_print += ft_printnbr(integer);
+	}
 	else if (format == 'p')
-		length_print += ft_ptr_print(va_arg(args, unsigned long long));
+	{
+		ptr = va_arg(args, unsigned int);
+		length_print += ft_ptr_print(ptr);
+	}
+	return (length_print);
 }
 
 int	ft_printf(const char *format, ...)
@@ -51,4 +67,11 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (len);
+}
+
+int	main(void)
+{
+	char	str[] = "Andrea";
+
+	ft_printf("Hello there %p", str);
 }
