@@ -6,7 +6,7 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:40:39 by akalican          #+#    #+#             */
-/*   Updated: 2023/10/31 14:52:19 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/02 12:00:37 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_print_hexlen(unsigned int nb)
 	return (len);
 }
 
-void	ft_print_hex(unsigned int nb, const char format)
+void	ft_add_hex(unsigned int nb, const char format)
 {
 	if (nb >= 16)
 	{
@@ -42,4 +42,13 @@ void	ft_print_hex(unsigned int nb, const char format)
 				ft_putchar_fd((nb - 10 + 'A'), 1);
 		}
 	}
+}
+
+int	ft_print_hex(unsigned int nb, const char format)
+{
+	if (nb == 0)
+		return (write(1, "0", 1));
+	else
+		ft_add_hex(nb, format);
+	return (ft_print_hexlen(nb));
 }

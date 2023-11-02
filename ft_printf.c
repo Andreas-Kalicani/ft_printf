@@ -6,7 +6,7 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:51:16 by akalican          #+#    #+#             */
-/*   Updated: 2023/10/31 14:22:34 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/02 14:24:55 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 int	ft_convert(va_list args, const char format)
 {
 	int				length_print;
-	char				*str;
+	char			*str;
 	int				integer;
 	unsigned int	ptr;
+	unsigned int	hex;
 
 	length_print = 0;
 	if (format == 'c')
@@ -43,9 +44,14 @@ int	ft_convert(va_list args, const char format)
 		ptr = va_arg(args, unsigned int);
 		length_print += ft_ptr_print(ptr);
 	}
+	else if (format == 'x' || format == 'X')
+	{
+		hex = va_arg(args, unsigned int);
+		length_print += ft_print_hex(hex);
+	}
 	return (length_print);
 }
-
+/*
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -68,10 +74,11 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-
+*/
 int	main(void)
 {
 	char	str[] = "Andrea";
 
 	ft_printf("Hello there %p", str);
 }
+*/
