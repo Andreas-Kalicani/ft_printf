@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:40:39 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/02 12:00:37 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/07 14:21:46 by andreasgjer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../libft/libft.h"
 
 int	ft_print_hexlen(unsigned int nb)
 {
@@ -23,22 +25,25 @@ int	ft_print_hexlen(unsigned int nb)
 	return (len);
 }
 
+void	ft_bellow16(unsigned int nb, const char format)
+{
+	ft_bellow16(nb / 10, format);
+	ft_bellow16(nb % 10, format);
+}
+
 void	ft_add_hex(unsigned int nb, const char format)
 {
 	if (nb >= 16)
-	{
-		ft_print_hex(nb / 16, format);
-		ft_print_hex(nb % 16, format);
-	}
+		ft_bellow16(nb, format);
 	else
 	{
-		if (nb >= 9)
+		if (nb <= 9)
 			ft_putchar_fd((nb + '0'), 1);
 		else
 		{
 			if (format == 'x')
 				ft_putchar_fd((nb - 10 + 'a'), 1);
-			if (format == "X")
+			if (format == 'X')
 				ft_putchar_fd((nb - 10 + 'A'), 1);
 		}
 	}

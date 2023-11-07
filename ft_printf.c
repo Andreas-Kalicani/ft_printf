@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:51:16 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/02 14:24:55 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/07 16:04:47 by andreasgjer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -47,11 +48,11 @@ int	ft_convert(va_list args, const char format)
 	else if (format == 'x' || format == 'X')
 	{
 		hex = va_arg(args, unsigned int);
-		length_print += ft_print_hex(hex);
+		length_print += ft_print_hex(hex, format);
 	}
 	return (length_print);
 }
-/*
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -74,11 +75,14 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-*/
+
 int	main(void)
 {
-	char	str[] = "Andrea";
+	unsigned int	nb;
+	int				num;
 
-	ft_printf("Hello there %p", str);
+	num = 234;
+	nb = 10;
+	ft_printf("%x", nb);
+	printf("\n%s", ft_itoa_unsigned(num));
 }
-*/

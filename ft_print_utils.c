@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:53:26 by akalican          #+#    #+#             */
-/*   Updated: 2023/10/31 13:58:16 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/07 13:37:55 by andreasgjer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft/libft.h"
 #include "ft_printf.h"
-#include "libft/libft.h"
 #include <stdlib.h>
 #include <unistd.h>
 
-int		ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
 	int	i;
 
