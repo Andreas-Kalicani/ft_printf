@@ -6,7 +6,7 @@
 /*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:11:05 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/07 16:07:06 by andreasgjer      ###   ########.fr       */
+/*   Updated: 2023/11/07 16:23:49 by andreasgjer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,21 @@ char	*ft_itoa_unsigned(int nb)
 		len--;
 	}
 	return (num);
+}
+
+int	ft_print_unsigned(unsigned int nb)
+{
+	char	*num;
+	int		print_length;
+
+	print_length = 0;
+	if (nb == 0)
+		print_length += wrte(1, "0", 1);
+	else
+	{
+		num = ft_itoa_unsigned(nb);
+		print_length += ft_putstr(num);
+		free(num);
+	}
+	return (print_length);
 }
