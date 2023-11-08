@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unsigned.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
+/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:11:05 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/07 16:23:49 by andreasgjer      ###   ########.fr       */
+/*   Updated: 2023/11/08 11:21:45 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_print_unsigned(unsigned int nb)
 
 	print_length = 0;
 	if (nb == 0)
-		print_length += wrte(1, "0", 1);
+		print_length += write(1, "0", 1);
 	else
 	{
 		num = ft_itoa_unsigned(nb);
@@ -63,4 +63,10 @@ int	ft_print_unsigned(unsigned int nb)
 		free(num);
 	}
 	return (print_length);
+}
+
+int	ft_print_precentage(void)
+{
+	write(1, "%", 1);
+	return (1);
 }

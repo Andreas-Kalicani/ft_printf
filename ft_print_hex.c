@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
+/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:40:39 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/07 14:21:46 by andreasgjer      ###   ########.fr       */
+/*   Updated: 2023/11/08 12:48:56 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft/libft.h"
 
 int	ft_print_hexlen(unsigned int nb)
 {
@@ -27,14 +27,19 @@ int	ft_print_hexlen(unsigned int nb)
 
 void	ft_bellow16(unsigned int nb, const char format)
 {
-	ft_bellow16(nb / 10, format);
-	ft_bellow16(nb % 10, format);
+	if (nb >= 16)
+	{
+		ft_bellow16(nb / 10, format);
+		ft_bellow16(nb % 10, format);
+	}
 }
 
 void	ft_add_hex(unsigned int nb, const char format)
 {
 	if (nb >= 16)
+	{
 		ft_bellow16(nb, format);
+	}
 	else
 	{
 		if (nb <= 9)

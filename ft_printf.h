@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
+/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:31:22 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/07 15:57:40 by andreasgjer      ###   ########.fr       */
+/*   Updated: 2023/11/08 12:46:02 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,7 @@ void		ft_putchar_fd(char c, int fd);
 int			ft_print_hex(unsigned int nb, const char format);
 char		*ft_itoa_unsigned(int nb);
 int			ft_printf(const char *format, ...);
+int			ft_print_unsigned(unsigned int nb);
+int			ft_print_precentage(void);
+void		ft_add_hex(unsigned int nb, const char format);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
+/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:51:16 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/07 16:04:47 by andreasgjer      ###   ########.fr       */
+/*   Updated: 2023/11/08 12:51:36 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_convert(va_list args, const char format)
 	int				integer;
 	unsigned int	ptr;
 	unsigned int	hex;
+	unsigned int	usign_n;
 
 	length_print = 0;
 	if (format == 'c')
@@ -50,6 +51,13 @@ int	ft_convert(va_list args, const char format)
 		hex = va_arg(args, unsigned int);
 		length_print += ft_print_hex(hex, format);
 	}
+	else if (format == 'u')
+	{
+		usign_n = va_arg(args, unsigned int);
+		length_print += ft_print_unsigned(usign_n);
+	}
+	else if (format == '%')
+		length_print += ft_print_precentage();
 	return (length_print);
 }
 
@@ -60,6 +68,7 @@ int	ft_printf(const char *format, ...)
 	int		i;
 
 	i = 0;
+	len = 0;
 	va_start(args, format);
 	while (format[i])
 	{
@@ -75,14 +84,17 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-
+/*
 int	main(void)
 {
 	unsigned int	nb;
 	int				num;
 
 	num = 234;
-	nb = 10;
+	nb = 15;
 	ft_printf("%x", nb);
-	printf("\n%s", ft_itoa_unsigned(num));
+	ft_printf("%u", nb);
+	ft_printf("%X", nb);
+	ft_printf("%%");
 }
+*/

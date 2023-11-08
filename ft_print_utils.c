@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
+/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:53:26 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/07 13:37:55 by andreasgjer      ###   ########.fr       */
+/*   Updated: 2023/11/08 11:04:25 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft/libft.h"
 #include "ft_printf.h"
 #include <stdlib.h>
 #include <unistd.h>
