@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
+/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:53:26 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/11 13:58:31 by andreasgjer      ###   ########.fr       */
+/*   Updated: 2023/11/13 17:30:47 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ int	number_length(int nb)
 {
 	int	len;
 
-	len = 0;
-	if (nb == 0)
-		return (1);
-	while (nb != 0)
+	len = 1;
+	while (nb > 9)
 	{
-		len++;
 		nb /= 10;
+		len++;
 	}
 	return (len);
 }
@@ -63,17 +61,21 @@ int	ft_putchar(int c)
 /* int	ft_printnbr(int nb)
 {
 	int	len;
+	int	fd;
 
+	fd = 1;
 	len = number_length(nb);
-	if (nb < 0)
+	if (nb < 0 && nb != -2147483648)
 	{
 		ft_putchar('-');
+		nb = -nb;
 		len++;
 	}
-	if (nb >= 10)
+	if (nb > 10)
 	{
 		ft_printnbr(abs(nb) / 10);
-		ft_printnbr(abs(nb) % 10);
+		ft_putchar_fd(nb % 10 + '0', fd);
+		len++;
 	}
 	if (nb < 10)
 	{
@@ -83,10 +85,75 @@ int	ft_putchar(int c)
 	return (len);
 }
 */
-
-int test_printnbr(int nb)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int len;
+	long long int	t;
+
+	t = n;
+	if (t < 0)
+	{
+		t *= -1;
+		ft_putchar_fd('-', fd);
+	}
+	if (t > 9)
+	{
+		ft_putnbr_fd((t / 10), fd);
+		ft_putchar_fd((t % 10 + '0'), fd);
+	}
+	else
+		ft_putchar_fd((t + '0'), fd);
+}
+
+int	ft_printnbr(int nb)
+{
+	int	len;
+	int	n;
+
+	n = nb;
+	len = 1;
+	if (n < 0 && n != -2147483648)
+	{
+		n = -nb;
+		len++;
+	}
+	while (n > 9)
+	{
+		n = n / 10;
+		len++;
+	}
+	ft_putnbr_fd(nb, 1);
+	if (nb == -2147483648)
+		return (11);
+	return (len);
+}
+
+/*
+int	print_nbr(int n)
+{
+	int	nb;
+	int	i;
+
+	nb = n;
+	i = 1;
+	if (n < 0 && n != -2147483648)
+	{
+		nb = -n;
+		i++;
+	}
+	while (nb > 9)
+	{
+		nb = nb / 10;
+		i++;
+	}
+	ft_putnbr_fd(n, 1);
+	if (n == -2147483648)
+		return (11);
+	return (i);
+}
+*/
+/*int test_printnbr(int nb)
+{
+	int	len;
 
 	len = number_length(nb);
 	if (nb < 0)
@@ -106,6 +173,7 @@ int test_printnbr(int nb)
 	}
 	return (len);
 }
+*/
 
 /*static int	number_length_second(int nb)
 {
@@ -127,18 +195,6 @@ int test_printnbr(int nb)
 	return (len);
 }
 */
-
-int	ft_printnbr_second(int nb)
-{
-	int		len;
-	char	*num;
-
-	len = 0;
-	num = ft_itoa(nb);
-	len = ft_putstr(num);
-	free(num);
-	return (len);
-}
 
 void	ft_putchar_fd(char c, int fd)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
+/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:31:22 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/11 13:45:55 by andreasgjer      ###   ########.fr       */
+/*   Updated: 2023/11/13 16:35:43 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void			ft_add_hex(unsigned int nb, const char format);
 char			*ft_itoa(int n);
 int				ft_printnbr_second(int nb);
 int             test_printnbr(int nb);
+int	            print_nbr(int n);
 #endif

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
+/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:51:16 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/11 14:07:12 by andreasgjer      ###   ########.fr       */
+/*   Updated: 2023/11/13 16:42:30 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft/libft.h"
 #include "ft_printf.h"
 #include <limits.h>
 #include <stdarg.h>
@@ -38,7 +38,7 @@ int	ft_convert(va_list args, const char format)
 	else if (format == 'd' || format == 'i')
 	{
 		integer = va_arg(args, int);
-		length_print += test_printnbr(integer);
+		length_print += ft_printnbr(integer);
 	}
 	else if (format == 'p')
 	{
@@ -83,7 +83,7 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-
+/*
 int	main(void)
 {
 	unsigned int	nb;
@@ -98,5 +98,7 @@ int	main(void)
 	ptr = 23398734;
 	point = &ptr;
 	printf("return value is : %d\n", ft_printf("%d\n", 19));
+	ft_printf("%d \n", 19);
 	printf("%d", 0);
 }
+*/
