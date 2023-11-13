@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:51:16 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/08 12:51:36 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/11 14:07:12 by andreasgjer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft/libft.h"
 #include "ft_printf.h"
+#include <limits.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,9 +21,8 @@
 int	ft_convert(va_list args, const char format)
 {
 	int				length_print;
-	char			*str;
 	int				integer;
-	unsigned int	ptr;
+	unsigned long long	ptr;
 	unsigned int	hex;
 	unsigned int	usign_n;
 
@@ -29,21 +30,19 @@ int	ft_convert(va_list args, const char format)
 	if (format == 'c')
 	{
 		length_print += ft_putchar(va_arg(args, int));
-		length_print++;
 	}
 	else if (format == 's')
 	{
-		str = va_arg(args, char *);
-		length_print += ft_putstr(str);
+		length_print += ft_putstr(va_arg(args, char *));
 	}
 	else if (format == 'd' || format == 'i')
 	{
 		integer = va_arg(args, int);
-		length_print += ft_printnbr(integer);
+		length_print += test_printnbr(integer);
 	}
 	else if (format == 'p')
 	{
-		ptr = va_arg(args, unsigned int);
+		ptr = va_arg(args, unsigned long long);
 		length_print += ft_ptr_print(ptr);
 	}
 	else if (format == 'x' || format == 'X')
@@ -84,17 +83,20 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-/*
+
 int	main(void)
 {
 	unsigned int	nb;
 	int				num;
+	char			*str;
+	int				ptr;
+	int				*point;
 
-	num = 234;
-	nb = 15;
-	ft_printf("%x", nb);
-	ft_printf("%u", nb);
-	ft_printf("%X", nb);
-	ft_printf("%%");
+	str = "";
+	num = 23398734;
+	nb = 15123123;
+	ptr = 23398734;
+	point = &ptr;
+	printf("return value is : %d\n", ft_printf("%d\n", 19));
+	printf("%d", 0);
 }
-*/

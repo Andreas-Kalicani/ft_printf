@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_pointer.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andreasgjertsenkalicani <andreasgjertse    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:10:21 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/08 10:56:22 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/10 13:45:22 by andreasgjer      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft/libft.h"
 #include "ft_printf.h"
-#include "libft/libft.h"
 
-int	ft_len_ptr(uintptr_t nbr)
+int	ft_len_ptr(unsigned long long nbr)
 {
 	int	len;
 
@@ -26,7 +26,7 @@ int	ft_len_ptr(uintptr_t nbr)
 	return (len);
 }
 
-uintptr_t	ft_put_ptr(uintptr_t nbr)
+unsigned int	ft_put_ptr(unsigned long long nbr)
 {
 	if (nbr >= 16)
 	{
@@ -50,7 +50,7 @@ int	ft_ptr_print(unsigned long long pointer)
 	length_print = 0;
 	length_print += write(1, "0x", 2);
 	if (pointer == 0)
-		length_print += write(1, NULL, 1);
+		length_print += write(1, "0", 1);
 	else
 	{
 		ft_put_ptr(pointer);
