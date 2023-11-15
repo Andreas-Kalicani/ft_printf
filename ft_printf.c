@@ -6,11 +6,10 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:51:16 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/15 13:46:32 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:27:59 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 #include <limits.h>
 #include <stdarg.h>
@@ -67,6 +66,7 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
+
 /*
 int	main(void)
 {

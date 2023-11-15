@@ -6,11 +6,10 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:10:21 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/13 15:12:36 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:52:43 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 
 int	ft_len_ptr(unsigned long long nbr)

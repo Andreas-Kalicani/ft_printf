@@ -6,12 +6,11 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:53:26 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/15 11:47:18 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:56:02 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 #include <stdlib.h>
 #include <unistd.h>
 

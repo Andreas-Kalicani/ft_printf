@@ -6,12 +6,12 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:40:39 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/15 13:39:29 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:05:50 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "printf.h"
+#include "ft_printf.h"
+#include <unistd.h>
 
 int	ft_print_hexlen(unsigned int num)
 {
