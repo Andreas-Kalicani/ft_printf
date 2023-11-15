@@ -6,7 +6,7 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:51:16 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/13 16:42:30 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:46:32 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,40 +21,24 @@
 int	ft_convert(va_list args, const char format)
 {
 	int				length_print;
-	int				integer;
-	unsigned long long	ptr;
 	unsigned int	hex;
-	unsigned int	usign_n;
 
 	length_print = 0;
 	if (format == 'c')
-	{
 		length_print += ft_putchar(va_arg(args, int));
-	}
 	else if (format == 's')
-	{
 		length_print += ft_putstr(va_arg(args, char *));
-	}
 	else if (format == 'd' || format == 'i')
-	{
-		integer = va_arg(args, int);
-		length_print += ft_printnbr(integer);
-	}
+		length_print += ft_printnbr(va_arg(args, int));
 	else if (format == 'p')
-	{
-		ptr = va_arg(args, unsigned long long);
-		length_print += ft_ptr_print(ptr);
-	}
+		length_print += ft_ptr_print(va_arg(args, unsigned long long));
 	else if (format == 'x' || format == 'X')
 	{
 		hex = va_arg(args, unsigned int);
 		length_print += ft_print_hex(hex, format);
 	}
 	else if (format == 'u')
-	{
-		usign_n = va_arg(args, unsigned int);
-		length_print += ft_print_unsigned(usign_n);
-	}
+		length_print += print_unsigned(va_arg(args, unsigned int));
 	else if (format == '%')
 		length_print += ft_print_precentage();
 	return (length_print);

@@ -6,58 +6,52 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:40:39 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/13 15:12:27 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:39:29 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "printf.h"
 
-int	ft_print_hexlen(unsigned int nb)
+int	ft_print_hexlen(unsigned int num)
 {
 	int	len;
 
 	len = 0;
-	while (nb != 0)
+	while (num != 0)
 	{
 		len++;
-		nb = nb / 16;
+		num = num / 16;
 	}
 	return (len);
 }
 
-void	ft_bellow16(unsigned int nb, const char format)
+void	ft_add_hex(unsigned int num, const char format)
 {
-	if (nb >= 16)
+	if (num >= 16)
 	{
-		ft_bellow16(nb / 10, format);
-		ft_bellow16(nb % 10, format);
+		ft_add_hex(num / 16, format);
+		ft_add_hex(num % 16, format);
 	}
-}
-
-void	ft_add_hex(unsigned int nb, const char format)
-{
-	if (nb >= 16)
-		ft_bellow16(nb, format);
 	else
 	{
-		if (nb <= 9)
-			ft_putchar_fd((nb + '0'), 1);
+		if (num <= 9)
+			ft_putchar_fd((num + '0'), 1);
 		else
 		{
 			if (format == 'x')
-				ft_putchar_fd((nb - 10 + 'a'), 1);
+				ft_putchar_fd((num - 10 + 'a'), 1);
 			if (format == 'X')
-				ft_putchar_fd((nb - 10 + 'A'), 1);
+				ft_putchar_fd((num - 10 + 'A'), 1);
 		}
 	}
 }
 
-int	ft_print_hex(unsigned int nb, const char format)
+int	ft_print_hex(unsigned int num, const char format)
 {
-	if (nb == 0)
+	if (num == 0)
 		return (write(1, "0", 1));
 	else
-		ft_add_hex(nb, format);
-	return (ft_print_hexlen(nb));
+		ft_add_hex(num, format);
+	return (ft_print_hexlen(num));
 }

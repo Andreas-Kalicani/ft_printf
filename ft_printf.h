@@ -6,7 +6,7 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:31:22 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/13 16:35:43 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:39:37 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int				ft_printnbr(int nb);
 unsigned int	ft_put_ptr(unsigned long long nbr);
 int				ft_ptr_print(unsigned long long pointer);
 void			ft_putchar_fd(char c, int fd);
-int				ft_print_hex(unsigned int nb, const char format);
 char			*ft_itoa_unsigned(int nb);
 int				ft_printf(const char *format, ...);
 int				ft_print_unsigned(unsigned int nb);
@@ -31,6 +30,8 @@ int				ft_print_precentage(void);
 void			ft_add_hex(unsigned int nb, const char format);
 char			*ft_itoa(int n);
 int				ft_printnbr_second(int nb);
-int             test_printnbr(int nb);
-int	            print_nbr(int n);
+int				test_printnbr(int nb);
+int				print_nbr(int n);
+int				print_unsigned(unsigned int nb);
+int				ft_print_hex(unsigned int num, const char format);
 #endif

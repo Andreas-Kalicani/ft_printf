@@ -6,7 +6,7 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:11:05 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/08 11:21:45 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:12:42 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,43 +26,30 @@ int	ft_unsigned_len(unsigned int nb)
 	return (len);
 }
 
-char	*ft_itoa_unsigned(int nb)
+void	ft_print_u(unsigned int nb)
 {
-	char	*num;
-	int		len;
-
-	len = ft_unsigned_len(nb);
-	num = (char *)malloc(sizeof(char) * (len + 1));
-	if (!num)
+	if (nb > 9)
+		print_unsigned(nb / 10);
+	if (nb <= 9)
 	{
-		free(num);
-		return (0);
+		ft_putchar_fd(nb + 48, 1);
+		return ;
 	}
-	num[len] = '\0';
-	while (nb != 0)
-	{
-		num[len - 1] = nb % 10 + 48;
-		nb = nb / 10;
-		len--;
-	}
-	return (num);
+	ft_putchar_fd((nb % 10) + 48, 1);
 }
 
-int	ft_print_unsigned(unsigned int nb)
+int	print_unsigned(unsigned int nb)
 {
-	char	*num;
-	int		print_length;
+	unsigned int	i;
 
-	print_length = 0;
-	if (nb == 0)
-		print_length += write(1, "0", 1);
-	else
+	ft_print_u(nb);
+	i = 1;
+	while (nb > 9)
 	{
-		num = ft_itoa_unsigned(nb);
-		print_length += ft_putstr(num);
-		free(num);
+		nb = nb / 10;
+		i++;
 	}
-	return (print_length);
+	return (i);
 }
 
 int	ft_print_precentage(void)
