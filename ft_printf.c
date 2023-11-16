@@ -6,7 +6,7 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:51:16 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/15 15:27:59 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:31:51 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	len = 0;
 	va_start(args, format);
-	while (format[i])
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
@@ -81,8 +81,8 @@ int	main(void)
 	nb = 15123123;
 	ptr = 23398734;
 	point = &ptr;
-	printf("return value is : %d\n", ft_printf("%d\n", 19));
-	ft_printf("%d \n", 19);
-	printf("%d", 0);
+	// printf("return value is : %d\n", ft_printf("%d\n", 19));
+	ft_printf("%p \n", 16);
+	printf("%p\n", 16);
 }
 */

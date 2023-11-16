@@ -6,7 +6,7 @@
 /*   By: akalican <akalican@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:40:39 by akalican          #+#    #+#             */
-/*   Updated: 2023/11/15 15:05:50 by akalican         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:45:05 by akalican         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_print_hexlen(unsigned int num)
 	}
 	return (len);
 }
-
+/*
 void	ft_add_hex(unsigned int num, const char format)
 {
 	if (num >= 16)
@@ -44,6 +44,36 @@ void	ft_add_hex(unsigned int num, const char format)
 			if (format == 'X')
 				ft_putchar_fd((num - 10 + 'A'), 1);
 		}
+	}
+}
+*/
+
+void	ft_add_hex(unsigned int num, const char format)
+{
+	int		index;
+	int		remainder;
+	char	buffer[32];
+
+	index = 0;
+	while (num > 0)
+	{
+		remainder = num % 16;
+		if (remainder <= 9)
+			buffer[index++] = '0' + remainder;
+		else
+		{
+			if (format == 'x')
+				buffer[index++] = 'a' + remainder - 10;
+			else if (format == 'X')
+				buffer[index++] = 'A' + remainder - 10;
+		}
+		num /= 16;
+	}
+	if (index == 0)
+		buffer[index++] = '0';
+	while (index > 0)
+	{
+		write(1, &buffer[--index], 1);
 	}
 }
 
